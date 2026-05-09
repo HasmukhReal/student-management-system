@@ -1,23 +1,20 @@
 #include <iostream>
 #include <vector>
 #include "Student.h"
+#include "StudentManager.h"
 
 int main() {
     std::cout << "--- Student Management System ---" << std::endl;
 
-    // Create some student objects
-    Student s1(101, "Alice Johnson", 20, 3.8);
-    Student s2(102, "Bob Smith", 21, 3.5);
-    Student s3(103, "Charlie Davis", 19, 3.9);
+    StudentManager manager;
 
-    // Display student info
-    s1.displayInfo();
-    s2.displayInfo();
-    s3.displayInfo();
+    // Add students via manager
+    manager.addStudent(Student(101, "Alice Johnson", 20, 3.8));
+    manager.addStudent(Student(102, "Bob Smith", 21, 3.5));
+    manager.addStudent(Student(103, "Charlie Davis", 19, 3.9));
 
-    std::cout << "\nUpdating Alice's GPA..." << std::endl;
-    s1.setGpa(3.95);
-    s1.displayInfo();
+    // Display all students
+    manager.displayAllStudents();
 
     return 0;
 }
